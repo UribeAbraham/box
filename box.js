@@ -13,21 +13,27 @@ $.fn.box=function(method){
 		onClose:false,
 		onError:false
 	}
-	var body=$("body");
+	var body=$("body"),win=$(window);
 	var methods={
-		init:function(opt){
-			opt=$.extend({},defaults,opt||{});
+		init:function(o){
+			o=$.extend({},defaults,o||{});
 			return this.each(function(){
 				var el=this;
+				var opt=$.extend({},o);
 				opt.ref=$(el).attr("href")||opt.ref;
 				opt.title=$(el).attr("title")||opt.title;
-				var win=$(window),loading=$("<div class='loading'>"),overlay=$("<div class='box'>"),image=$(Image()),container=$("<div class='boxcontent'>"),close=$("<span class='close'>"),title=$("<p class='caption'>"+opt.title+"</p>");
+				var loading=$("<div class='loading'>"),overlay=$("<div class='box'>"),image=$(Image()),container=$("<div class='boxcontent'>"),close=$("<span class='close'>"),title=$("<p class='caption'>"+opt.title+"</p>");
 				var loadingfade=function(){
 					loading.fadeOut("fast",function(){$(this).remove();});
 				},closeappend=function(){
 					if(opt.closebutton){
 						container.append(close);
 						el.box.closebutton=close;
+					}
+				},captionappend=function(){
+					if(opt.caption&&opt.title){
+						container.append(title);
+						el.box.title=title;
 					}
 				};
 				close.click(function(){
@@ -36,14 +42,14 @@ $.fn.box=function(method){
 				el.box=opt;
 				if(body.css("overflow")==""){
 					if(body.css("overflow-x")!=""){
-						el.overflowx=body.css("overflow-x");
+						el.box.overflowx=body.css("overflow-x");
 					}
 					if(body.css("overflow-y")!=""){
-						el.overflowy=body.css("overflow-y");
+						el.box.overflowy=body.css("overflow-y");
 					}
 				}
 				else{
-					el.overflow=body.css("overflow");
+					el.box.overflow=body.css("overflow");
 				}
 				body.append(overlay).css({"overflow":"hidden"});
 				overlay.css({"top":win.scrollTop(),"left":win.scrollLeft()}).click(function(){
@@ -72,10 +78,7 @@ $.fn.box=function(method){
 						container.append(image);
 						el.box.image=image;
 						closeappend();
-						if(opt.caption&&opt.title){
-							container.append(title);
-							el.box.title=title;
-						}
+						captionappend();
 						var mheight=win.height()/2;
 						if(el.box.width==0&&el.box.height==0){
 							el.box.width=this.width;
@@ -124,6 +127,9 @@ $.fn.box=function(method){
 							else{
 								container.css({"top":function(){return mheight-(container.height()/2)}});
 							}
+							win.resize(function(){
+								container.css({top:(win.height()/2)-container.height()/2});
+							});
 						}
 						if(defered&&defered.promise){
 							defered.done(function(){
@@ -175,10 +181,7 @@ $.fn.box=function(method){
 								opt.onLoad(el.box);
 						}
 					});
-					if(opt.caption&&opt.title){
-						container.append(title);
-						el.box.title=title;
-					}
+					captionappend();
 				}
 			});
 		},
@@ -186,11 +189,11 @@ $.fn.box=function(method){
 			return this.each(function(){
 				var el=this,closefunction,defered;
 				closefunction=function(){
-					if(el.overflow){
-						body.css({"overflow":el.overflow});
+					if(el.box.overflow){
+						body.css({"overflow":el.box.overflow});
 					}
 					else{
-						body.css({"overflow-x":el.overflowx,"overflow-y":el.overflowy});
+						body.css({"overflow-x":el.box.overflowx,"overflow-y":el.box.overflowy});
 					}
 					el.box.overlay.remove();
 				};
