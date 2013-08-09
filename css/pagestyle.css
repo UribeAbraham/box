@@ -40,6 +40,7 @@ a:hover{
 	border-bottom:1px solid #aaa;
     border-radius: 5px 5px 5px 5px;
     color: #333;
+	text-decoration: none;
 }
 .button:active{
 	background: linear-gradient(#dbdbdb, #cbcbcb);
