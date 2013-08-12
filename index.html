@@ -176,7 +176,7 @@ $(document).ready(function(){
 	$("#b2").click(function(){
 		var ele=$(this);
 		ele.box({
-			ref:"imgs/2.jpg",
+			ref:"imgs/1.jpg",
 			title:"some title",
 			caption:false,
 			onStart:function(e){
@@ -189,9 +189,8 @@ $(document).ready(function(){
 				$(e.closebutton).css({"opacity":"0"});
 				$(e.title).css({"opacity":"0"});
 				var x1=$(e.container).position().left,y1=$(e.container).position().top,w1=$(e.container).width(),h1=$(e.container).height();
-				$(e.container).css({"opacity":"1","position":"absolute","top":-h1,"left":x1})
+				$(e.container).css({"opacity":"1","top":-h1})
 								.animate({"top":y1},2000,function(){
-									$(this).css({"position":"relative","left":"0"});
 									$(e.closebutton).animate({"opacity":"1"},1000);
 									$(e.title).animate({"opacity":"1"},1000);
 								});
