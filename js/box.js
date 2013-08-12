@@ -22,7 +22,7 @@ $.fn.box=function(method){
 				var opt=$.extend({},o);
 				opt.ref=$(el).attr("href")||opt.ref;
 				opt.title=$(el).attr("title")||opt.title;
-				var loading=$("<div class='loading'>"),overlay=$("<div class='box'>"),image=$(Image()),container=$("<div class='boxcontent'>"),close=$("<span class='close'>"),title=$("<p class='caption'>"+opt.title+"</p>");
+				var loading=$("<div class='loading'>"),overlay=$("<div class='box'>"),image=$(new Image()),container=$("<div class='boxcontent'>"),close=$("<span class='close'>"),title=$("<p class='caption'>"+opt.title+"</p>");
 				var loadingfade=function(){
 					loading.fadeOut("fast",function(){$(this).remove();});
 				},closeappend=function(){
