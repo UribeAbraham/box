@@ -1,0 +1,66 @@
+.box{
+	background: url("bg.png");
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	padding:0;
+	-moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.box .caption{
+	position:relative;
+	top:-15px;
+}
+.box .boxcontent{
+	position:relative;
+	margin:0 auto;
+	color:#ffffff;
+	font-weight:bolder;
+	font-size:22px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000000;
+	-moz-user-select: text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
+}
+.box .loading{
+	position:relative;
+	margin:0 auto;
+	background:url("loader.gif");
+	width:16px;
+	height:16px;
+	display:block;
+}
+.box .boxcontent img{
+	-moz-box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+	box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+}
+.box .error{
+	background:#ffffff;
+	color:#000000;
+	padding:10px;
+	width:200px;
+	text-shadow:0px 0px 0px;
+	-moz-box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+	box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.7);
+}
+.box .boxcontent .close{
+	position:absolute;
+	right:-10px;
+	top:-10px;
+	width:20px;
+	height:20px;
+	background:url("close.png");
+	cursor:pointer;
+	-moz-box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.7);
+	box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.7);
+}
