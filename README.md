@@ -3,7 +3,7 @@ box
 
 custom image dialog box with animation
 
-Demo: <a href="http://worzt.github.io/jquery.canvas.particles/">http://worzt.github.io/jquery.canvas.particles/</a>
+Demo: <a href="http://worzt.github.io/box/">http://worzt.github.io/box/</a>
 
 Getting Started
 =======================
