@@ -9,77 +9,247 @@
 </head>
 <body>
 	<div id="container">
-		<header>
-          <h1>box</h1>
-          <h2>custom image dialog box</h2>
-        </header>
+		<div class="desc">
+			<header>
+			  <h1>box</h1>
+			  <h2>custom image dialog box</h2>
+			</header>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/worzt/box/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/worzt/box/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/worzt/box" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-	
+			<section id="downloads">
+			  <a href="https://github.com/worzt/box/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+			  <a href="https://github.com/worzt/box/tarball/master" id="download-tar-gz" class="button t"><span>Download .tar.gz</span></a>
+			  <a href="https://github.com/worzt/box" id="view-on-github" class="button"><span>View on GitHub</span></a>
+			</section>
+		</div>
         <section id="main_content">
-			<h1>Default:</h1>
-			<a href="imgs/2.jpg" class="default">
-				image
-			</a><br>
-			<a href="error.jpg" class="default">
-				error
-			</a><br>
-			<a href="imgs/1.jpg" title="some title" class="default">
-				image with title
-			</a><br>
-			
-			<h1>Caption, fixed size and no close button:</h1>
-			<a href="imgs/2.jpg" class="caption">
-				image
-			</a><br>
-			<a href="error.jpg" class="caption">
-				error
-			</a><br>
-			<a href="imgs/1.jpg" title="some title" class="caption">
-				imagen with title
-			</a><br>
-			
-			<h1>Custom animation:</h1>
-			<a href="imgs/2.jpg" class="customAnimation">
-				image
-			</a><br>
-			<a href="error.jpg" class="customAnimation">
-				error
-			</a><br>
-			<a href="imgs/1.jpg" title="some title" class="customAnimation">
-				imagen with title
-			</a><br>
-			
-			<h1>Custom animation 2:</h1>
-			<a href="imgs/2.jpg" class="customAnimation2">
-				image
-			</a><br>
-			<a href="error.jpg" class="customAnimation2">
-				error
-			</a><br>
-			<a href="imgs/1.jpg" title="some title" class="customAnimation2">
-				imagen with title
-			</a><br>
-			<h1>span element</h1>
-			<span id="b1" class="button">
-				div default
-			</span>
-			<span id="b2" class="button">
-				div animation
-			</span>
-			<span id="b3" class="button">
-				div html
-			</span>
+			<div class="menu">
+				<a href="#example1">example 1</a>
+				<a href="#example2">example 2</a>
+				<a href="#example3">example 3</a>
+				<a href="#example4">example 4</a>
+				<a href="#example5">example 5</a>
+			</div>
+			<div class="example">
+				<h1>Default:</h1>
+				<div class="links">
+					<a href="imgs/2.jpg" class="default">
+						image
+					</a><br>
+					<a href="error.jpg" class="default">
+						error
+					</a><br>
+					<a href="imgs/1.jpg" title="some title" class="default">
+						image with title
+					</a>
+				</div>
+				<pre class="prettyprint lang-javascript linenums:1">
+$(".default").click(function(e){
+	e.preventDefault();
+	$(this).box();
+});
+</pre>
+			</div>
+			<div class="example">
+				<h1>Caption, fixed size and no close button:</h1>
+				<div class="links">
+					<a href="imgs/2.jpg" class="caption">
+						image
+					</a><br>
+					<a href="error.jpg" class="caption">
+						error
+					</a><br>
+					<a href="imgs/1.jpg" title="some title" class="caption">
+						imagen with title
+					</a>
+				</div>
+				<pre class="prettyprint lang-javascript linenums:1">
+$(".caption").click(function(e){
+	e.preventDefault();
+	$(this).box({
+		width:500,
+		height:300,
+		closebutton:false,
+		caption:true
+	});
+});
+</pre>	
+			</div>
+			<div class="example">
+				<h1>Custom animation:</h1>
+				<div class="links">
+					<a href="imgs/2.jpg" class="customAnimation">
+						image
+					</a><br>
+					<a href="error.jpg" class="customAnimation">
+						error
+					</a><br>
+					<a href="imgs/1.jpg" title="some title" class="customAnimation">
+						imagen with title
+					</a>
+				</div>
+				<pre class="prettyprint lang-javascript linenums:1">
+$(".customAnimation").click(function(e){
+	e.preventDefault();
+	$(this).box({
+		width:500,
+		height:300,
+		closebutton:true,
+		caption:true,
+		onStart:function(e){
+			var defered=new $.Deferred();
+			$(e.container).css({"display":"none"});
+			$(e.overlay).css("opacity","0")
+				.animate({"opacity":"1"},
+				300,
+				function(){defered.resolve();});
+			return defered.promise();
+		},
+		onLoad:function(e){
+			$(e.container).css({"display":""});
+			$(e.image).css({"width":"0px"})
+					  .animate({"width":"100%"},2000);
+		},
+		onClose:function(e){
+			var defered=new $.Deferred();
+			if(e.image){
+			$(e.image).animate({"width":"0px"},2000,function(){
+				$(e.overlay).stop().animate({"opacity":"0"},
+					1000,
+					function(){defered.resolve();});
+			});
+			}
+			else{
+			$(e.overlay).stop().animate({"opacity":"0"},
+				1000,
+				function(){defered.resolve();});
+			}
+			return defered.promise();
+		}
+	});
+});</pre>
+			</div>
+			<div class="example">
+				<h1>Custom animation 2:</h1>
+				<div class="links">
+					<a href="imgs/2.jpg" class="customAnimation2">
+						image
+					</a><br>
+					<a href="error.jpg" class="customAnimation2">
+						error
+					</a><br>
+					<a href="imgs/1.jpg" title="some title" class="customAnimation2">
+						imagen with title
+					</a>
+				</div>
+				<pre class="prettyprint lang-javascript linenums:1">
+$(".customAnimation2").click(function(e){
+	e.preventDefault();
+	var ele=$(this);
+	var x=ele.offset().left-$(window).scrollLeft(),
+	y=ele.offset().top-$(window).scrollTop(),
+	w=ele.width(),h=ele.height();
+	ele.box({
+		closebutton:true,
+		caption:true,
+		onStart:function(e){
+			var defered=new $.Deferred();
+			$(e.container).css({"opacity":"0"});
+			$(e.overlay).css("opacity","0").animate({"opacity":"1"},1000,function(){defered.resolve();});
+			return defered.promise();
+		},
+		onLoad:function(e){
+			$(e.closebutton).css({"opacity":"0"});
+			var x1=$(e.container).offset().left,
+				y1=$(e.container).position().top,
+				w1=$(e.container).width(),h1=$(e.container).height();
+			$(e.container).css({"opacity":"1","position":"absolute","left":x,"top":y,"width":w,"height":h})
+				.animate({"left":x1,"top":y1,"width":w1,"height":h1},2000,function(){
+					$(this).css({"position":"relative","left":"0"});
+					$(e.closebutton).animate({"opacity":"1"},1000);
+				});
+		},
+		onClose:function(e){
+			var defered=new $.Deferred();
+			if($(e.container).find(".close").is("span")){
+				$(e.closebutton).animate({"opacity":"0"},1000);
+			}
+			if(e.image){
+				$(e.image).animate({"width":"0px"},2000,function(){
+					$(e.overlay).stop().animate({"opacity":"0"},1000,function(){defered.resolve();});
+				});
+			}
+			else{
+				$(e.overlay).stop().animate({"opacity":"0"},1000,function(){defered.resolve();});
+			}
+			return defered.promise();
+		},
+		onError:function(e){
+			$(e.container).html("custom error<a href='#'>link</a>").css({"color":"#aa0000","display":"","opacity":"1"});
+		}
+	});
+});
+				</pre>
+			</div>
+			<div class="example">
+				<h1>span element</h1>
+				<div class="links">
+					<span id="b1" class="button">
+						div default
+					</span>
+					<span id="b2" class="button">
+						div animation
+					</span>
+					<span id="b3" class="button">
+						div html
+					</span>
+				</div>
+				<pre class="prettyprint lang-javascript linenums:1">
+$("#b3").click(function(){
+	$(this).box({
+		ref:"2.html",
+		title:"some title",
+		caption:true,
+		type:"html",
+		onStart:function(e){
+			var defered=new $.Deferred();
+			$(e.container).css({
+				"width":"70%",
+				"height":"100%",
+				"background":"#ffffff",
+				"color":"#000000",
+				"opacity":"0",
+				"position":"relative",
+				"word-break": "break-all",
+				"text-align":"center"});
+			$(e.overlay).css("opacity","0").animate({"opacity":"1"},3000,function(){defered.resolve();});
+			return defered.promise();
+		},
+		onLoad:function(e){
+			$(e.container).animate({"opacity":"1"},3000);
+			$(e.title).removeClass("caption").css({"position":"absolute","bottom":"0px","left":"0px"});
+		}
+	});
+});
+				</pre>
+			</div>
 		</section>
 	</div>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="js/box.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var hash = location.hash;
+	$(".menu a").click(function(){
+		var e=$(this);
+		$(".example").css("display","none").eq($(".menu a").index(e)).css("display","block");
+		$(".prettyprint").each(function(){
+				var swidth=$(this)[0].scrollWidth;
+				swidth=swidth-30;
+				$(this).find(".linenums").css({"width":swidth+"px"});
+		});
+	});
+	$(".menu a[href="+hash+"]").click();
+
 	$(".default").click(function(e){
 		e.preventDefault();
 		$(this).box();
@@ -127,7 +297,7 @@ $(document).ready(function(){
 	$(".customAnimation2").click(function(e){
 		e.preventDefault();
 		var ele=$(this);
-		var x=ele.position().left-$(window).scrollLeft(),y=ele.position().top-$(window).scrollTop(),w=ele.width(),h=ele.height();
+		var x=ele.offset().left-$(window).scrollLeft(),y=ele.offset().top-$(window).scrollTop(),w=ele.width(),h=ele.height();
 		ele.box({
 			closebutton:true,
 			caption:true,
@@ -139,7 +309,7 @@ $(document).ready(function(){
 			},
 			onLoad:function(e){
 				$(e.closebutton).css({"opacity":"0"});
-				var x1=$(e.container).position().left,y1=$(e.container).position().top,w1=$(e.container).width(),h1=$(e.container).height();
+				var x1=$(e.container).offset().left,y1=$(e.container).position().top,w1=$(e.container).width(),h1=$(e.container).height();
 				$(e.container).css({"opacity":"1","position":"absolute","left":x,"top":y,"width":w,"height":h})
 								.animate({"left":x1,"top":y1,"width":w1,"height":h1},2000,function(){
 									$(this).css({"position":"relative","left":"0"});
@@ -251,7 +421,17 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	prettyPrint();
+    $(".prettyprint").each(function(){
+			var swidth=$(this)[0].scrollWidth;
+            swidth=swidth-30;
+			$(this).find(".linenums").css({"width":swidth+"px"});
+    });
+	
+	
 });
 </script>
+<script src="js/prettify.js" type="text/javascript"></script>
 </body>
 </html>

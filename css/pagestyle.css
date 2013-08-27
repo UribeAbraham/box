@@ -1,10 +1,25 @@
 body{
-	background:#ffffff;
+	background:url('bgp.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	min-width:500px;
+	padding:0;
+	margin:0;
+	width:100%;
 }
 a{
-	color: rgb(0, 119, 255);
+	color: rgb(14, 36, 150);
     font-weight: bold;
     text-decoration: none;
+}
+h1{
+	text-shadow: 1px 1px 1px rgb(221, 221, 221),-1px -1px 1px rgb(221, 221, 221);
+	color: rgb(114, 114, 114);
+	font-family: Lucida Console;
+	font-weight: bolder;
+	font-size: 50px;
 }
 a:hover{
 	text-decoration: underline;
@@ -14,10 +29,32 @@ a:hover{
 	position:relative;
 	margin:0 auto;
 }
+.example{
+height: 470px;
+width: 800px;
+position: relative;
+margin: 0 auto;
+margin-bottom: 20px;
+	display:none;
+}
+.example h1{
+	font-size:25px;
+}
+.links{
+	float:left;
+	height:70px;
+	position:relative;
+}
+.prettyprint{
+	position:relative;
+	float:left;
+	min-width:400px;
+	margin:0px;
+}
 .button{
 	background: linear-gradient(#fafafa, #eaeaea);
-    border: 1px solid #ddd;
-	border-bottom:1px solid #bbb;
+    border: 1px solid rgb(177, 176, 176);
+	border-bottom: 1px solid rgb(145, 145, 145);
     border-radius: 5px 5px 5px 5px;
     color: #333;
     display: inline-block;
@@ -44,9 +81,203 @@ a:hover{
 }
 .button:active{
 	background: linear-gradient(#dbdbdb, #cbcbcb);
-    border: 1px solid #bbb;
-	border-bottom:1px solid #999;
+    border: 1px solid rgb(151, 151, 151);
+	border-bottom: 1px solid rgb(136, 136, 136);
     border-radius: 5px 5px 5px 5px;
     color: #000;
 	box-shadow: 0 1px 4px 0 rgba(100, 100, 100,.5) inset;
+}
+.menu{
+	text-align:center;
+}
+.desc{
+	width:100%;
+	height:200px;
+}
+#downloads{
+	display:block;
+	position:relative;
+	top:10px;
+	text-align:center;
+}
+#downloads .button{
+	margin-bottom:7px;
+}
+#downloads .t{
+	margin-left:15%;
+	margin-right:15%;
+}
+/*--------------prettify---------------*/
+.str
+{
+    color: #808080;
+}
+.kwd
+{
+    color: #000080;
+	font-weight: bold;
+	font-style: italic;
+}
+.com
+{
+    color: #008000;
+}
+.typ
+{
+    color: #8000ff;
+}
+.lit
+{
+    color: #ff0000;
+}
+.pun
+{
+    color: #000000;
+    font-weight:bold;
+}
+.pln
+{
+    color: #000000;
+}
+.tag
+{
+    color: #0000ff;
+}
+.atn
+{
+    color: #ff0000;
+}
+.atv
+{
+    color: #8000ff;
+}
+.dec
+{
+    color: purple;
+}
+.mobile .main-inner{
+background:none!important;
+}
+pre.prettyprint
+{
+overflow: auto;
+padding: 0;
+word-wrap: normal;
+-ms-word-wrap: normal;
+white-space: pre;
+text-shadow: none;
+font-size: 83%;
+height: 100%;
+}
+pre.prettyprint li
+{
+margin: 0!important;
+width: auto;
+}
+pre.prettyprint li span{
+width:auto;
+}
+ol.linenums
+{
+width: 370px;
+margin-top: 0;
+margin-bottom: 0;
+padding: 0 0 0 28px;
+background: #ddd;
+border: 1px solid #333;
+}
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
+{
+    color: #808080;
+    list-style-type: decimal;
+	background:#ffffff;
+}
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #f8f8f8;
+}
+@media print
+{
+    .str
+    {
+        color: #060;
+    }
+    .kwd
+    {
+        color: #000080!important;
+        font-weight: bold;
+    }
+    .com
+    {
+        color: #600;
+        font-style: italic;
+    }
+    .typ
+    {
+        color: #404;
+        font-weight: bold;
+    }
+    .lit
+    {
+        color: #044;
+    }
+    .pun
+    {
+        color: #440;
+    }
+    .pln
+    {
+        color: #000;
+    }
+    .tag
+    {
+        color: #006;
+        font-weight: bold;
+    }
+    .atn
+    {
+        color: #404;
+    }
+    .atv
+    {
+        color: #060;
+    }
+}
+
+ul, ol, dl {
+  margin-bottom: 20px;
+}
+#rec0{
+	border: 1px solid #ccc;
+    cursor: pointer;
+    height: 250px;
+    position: relative;
+    width: 700px;
+	margin:0 auto;
+}
+#rec0 div{
+	font-size: 25px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    width: 150px;
+}
+.opt{
+	font-size: 12px;
+    height: 250px;
+    margin: 0 auto;
+    text-shadow: none;
+    width: 698px;;
+}
+.opt input{
+	margin-right: 10px;
+    margin-top: 5px;
+}
+@media screen and (max-width: 680px) {
+	#downloads .t{
+		margin:0;
+		margin-bottom:7px;
+	}
+}
+@media screen and (max-width: 480px) {
+
 }
