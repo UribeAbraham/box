@@ -3,7 +3,7 @@ box
 
 custom image dialog box with animation
 
-Demo: <a href="http://worzt.github.io/box/">http://worzt.github.io/box/</a>
+Demo: <a href="http://uribeabraham.github.io/box/">http://uribeabraham.github.io/box/</a>
 
 Getting Started
 =======================
@@ -39,7 +39,7 @@ var defaults={
 		onStart:false,	//function to do before the box displaying
 		onLoad:false,	//function to do when the url loads
 		onClose:false,	//function to do before removing th box
-		onError:false	//function to do if the box can´t load the url
+		onError:false	//function to do if the box canÂ´t load the url
 };
 ```
 Methods
