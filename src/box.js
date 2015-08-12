@@ -13,7 +13,10 @@ $.fn.box=function(method){
 		onClose:false,
 		onError:false
 	}
-	var body=$("body"),win=$(window);
+	var body=$("body"),win=$(window),ele_overflow=$("html");
+	if($("html")[0].scrollHeight<$("body")[0].scrollHeight){
+		ele_overflow=body;
+	}
 	var methods={
 		init:function(o){
 			o=$.extend({},defaults,o||{});
@@ -40,18 +43,19 @@ $.fn.box=function(method){
 					$(el).box("close");
 				});
 				el.box=opt;
-				if(body.css("overflow")==""){
-					if(body.css("overflow-x")!=""){
-						el.box.overflowx=body.css("overflow-x");
+				if(ele_overflow.css("overflow")==""){
+					if(ele_overflow.css("overflow-x")!=""){
+						el.box.overflowx=ele_overflow.css("overflow-x");
 					}
-					if(body.css("overflow-y")!=""){
-						el.box.overflowy=body.css("overflow-y");
+					if(ele_overflow.css("overflow-y")!=""){
+						el.box.overflowy=ele_overflow.css("overflow-y");
 					}
 				}
 				else{
-					el.box.overflow=body.css("overflow");
+					el.box.overflow=ele_overflow.css("overflow");
 				}
-				body.append(overlay).css({"overflow":"hidden"});
+				body.append(overlay);
+				ele_overflow.css({"overflow":"hidden"});
 				overlay.css({"top":win.scrollTop(),"left":win.scrollLeft()}).click(function(){
 					$(el).box("close");
 				});
@@ -190,10 +194,10 @@ $.fn.box=function(method){
 				var el=this,closefunction,defered;
 				closefunction=function(){
 					if(el.box.overflow){
-						body.css({"overflow":el.box.overflow});
+						ele_overflow.css({"overflow":el.box.overflow});
 					}
 					else{
-						body.css({"overflow-x":el.box.overflowx,"overflow-y":el.box.overflowy});
+						ele_overflow.css({"overflow-x":el.box.overflowx,"overflow-y":el.box.overflowy});
 					}
 					el.box.overlay.remove();
 				};
