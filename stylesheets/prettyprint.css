@@ -17,14 +17,14 @@
 }
 .button{
 	background: linear-gradient(#fafafa, #eaeaea);
-    border: 1px solid rgb(177, 176, 176);
+	border: 1px solid rgb(177, 176, 176);
 	border-bottom: 1px solid rgb(145, 145, 145);
-    border-radius: 5px 5px 5px 5px;
-    color: #333;
-    display: inline-block;
-    font-weight: bolder;
-    padding: 15px;
-    text-align: center;
+	border-radius: 5px 5px 5px 5px;
+	color: #333;
+	display: inline-block;
+	font-weight: bolder;
+	padding: 15px;
+	text-align: center;
 	text-decoration:none;
 	cursor:pointer;
 	-webkit-touch-callout: none;
@@ -37,18 +37,18 @@
 }
 .button:hover{
 	background: linear-gradient(#ebebeb, #dbdbdb);
-    border: 1px solid #ccc;
+	border: 1px solid #ccc;
 	border-bottom:1px solid #aaa;
-    border-radius: 5px 5px 5px 5px;
-    color: #333;
+	border-radius: 5px 5px 5px 5px;
+	color: #333;
 	text-decoration: none;
 }
 .button:active{
 	background: linear-gradient(#dbdbdb, #cbcbcb);
-    border: 1px solid rgb(151, 151, 151);
+	border: 1px solid rgb(151, 151, 151);
 	border-bottom: 1px solid rgb(136, 136, 136);
-    border-radius: 5px 5px 5px 5px;
-    color: #000;
+	border-radius: 5px 5px 5px 5px;
+	color: #000;
 	box-shadow: 0 1px 4px 0 rgba(100, 100, 100,.5) inset;
 }
 .menu{
@@ -61,50 +61,50 @@
 /*--------------prettify---------------*/
 .str
 {
-    color: #808080;
+	color: #808080;
 }
 .kwd
 {
-    color: #000080;
+	color: #000080;
 	font-weight: bold;
 	font-style: italic;
 }
 .com
 {
-    color: #008000;
+	color: #008000;
 }
 .typ
 {
-    color: #8000ff;
+	color: #8000ff;
 }
 .lit
 {
-    color: #ff0000;
+	color: #ff0000;
 }
 .pun
 {
-    color: #000000;
-    font-weight:bold;
+	color: #000000;
+	font-weight:bold;
 }
 .pln
 {
-    color: #000000;
+	color: #000000;
 }
 .tag
 {
-    color: #0000ff;
+	color: #0000ff;
 }
 .atn
 {
-    color: #ff0000;
+	color: #ff0000;
 }
 .atv
 {
-    color: #8000ff;
+	color: #8000ff;
 }
 .dec
 {
-    color: purple;
+	color: purple;
 }
 .mobile .main-inner{
 	background:none!important;
@@ -141,59 +141,59 @@ ol.linenums
 }
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {
-    color: #808080;
-    list-style-type: decimal;
+	color: #808080;
+	list-style-type: decimal;
 	background:#ffffff;
 }
 li.L1, li.L3, li.L5, li.L7, li.L9 {
-    background: #f8f8f8;
+	background: #f8f8f8;
 }
 @media print
 {
-    .str
-    {
-        color: #060;
-    }
-    .kwd
-    {
-        color: #000080!important;
-        font-weight: bold;
-    }
-    .com
-    {
-        color: #600;
-        font-style: italic;
-    }
-    .typ
-    {
-        color: #404;
-        font-weight: bold;
-    }
-    .lit
-    {
-        color: #044;
-    }
-    .pun
-    {
-        color: #440;
-    }
-    .pln
-    {
-        color: #000;
-    }
-    .tag
-    {
-        color: #006;
-        font-weight: bold;
-    }
-    .atn
-    {
-        color: #404;
-    }
-    .atv
-    {
-        color: #060;
-    }
+	.str
+	{
+		color: #060;
+	}
+	.kwd
+	{
+		color: #000080!important;
+		font-weight: bold;
+	}
+	.com
+	{
+		color: #600;
+		font-style: italic;
+	}
+	.typ
+	{
+		color: #404;
+		font-weight: bold;
+	}
+	.lit
+	{
+		color: #044;
+	}
+	.pun
+	{
+		color: #440;
+	}
+	.pln
+	{
+		color: #000;
+	}
+	.tag
+	{
+		color: #006;
+		font-weight: bold;
+	}
+	.atn
+	{
+		color: #404;
+	}
+	.atv
+	{
+		color: #060;
+	}
 }
 
 ul, ol, dl {
@@ -201,36 +201,33 @@ ul, ol, dl {
 }
 #rec0{
 	border: 1px solid #ccc;
-    cursor: pointer;
-    height: 250px;
-    position: relative;
-    width: 700px;
+	cursor: pointer;
+	height: 250px;
+	position: relative;
+	width: 700px;
 	margin:0 auto;
 }
 #rec0 div{
 	font-size: 25px;
-    margin: 0 auto;
-    position: relative;
-    top: 100px;
-    width: 150px;
+	margin: 0 auto;
+	position: relative;
+	top: 100px;
+	width: 150px;
 }
 .opt{
 	font-size: 12px;
-    height: 250px;
-    margin: 0 auto;
-    text-shadow: none;
-    width: 698px;;
+	height: 250px;
+	margin: 0 auto;
+	text-shadow: none;
+	width: 698px;;
 }
 .opt input{
 	margin-right: 10px;
-    margin-top: 5px;
+	margin-top: 5px;
 }
 @media screen and (max-width: 680px) {
 	#downloads .t{
 		margin:0;
 		margin-bottom:7px;
 	}
-}
-@media screen and (max-width: 480px) {
-
 }
