@@ -130,11 +130,14 @@ pre.prettyprint li span{
 }
 ol.linenums
 {
-	width: 370px;
+	width: 100%;
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: 0 0 0 28px;
+	padding: 0 0 0 40px;
 	background: #ddd;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 }
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {
